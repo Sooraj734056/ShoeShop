@@ -9,52 +9,167 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Global styles -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Page styles -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/about.css">
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col">
+<body class="bg-gray-50 text-gray-900 font-sans flex flex-col min-h-screen">
+
   <!-- NAVBAR -->
-  <nav class="bg-white shadow sticky top-0 z-50">
-    <div class="container mx-auto px-4 flex justify-between items-center h-16">
-      <a href="index.html" class="flex items-center space-x-3">
-        <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553 2.276a1 1 0 010 1.448L15 16m-3 0v5m0-5H8m4 0H8m7-5a1.5 1.5 0 10-3 0v5h3v-5z"></path></svg>
-        <span class="font-bold text-xl text-orange-600">ShoeShop</span>
+<nav id="main-navbar" class="fixed w-full top-0 z-50 bg-sky-200 backdrop-blur-md shadow-md">
+  <div id="nav-container" class="container mx-auto px-4 flex justify-between items-center h-16">
+    <a href="index.html" class="flex items-center space-x-3">
+      <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553 2.276a1 1 0 010 1.448L15 16m-3 0v5m0-5H8m4 0H8m7-5a1.5 1.5 0 10-3 0v5h3v-5z"></path>
+      </svg>
+      <span class="font-bold text-xl text-orange-600">ShoeShop</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-6 uppercase font-semibold text-gray-700 text-sm">
+      <li><a class="hover:text-orange-600" href="index.html">Home</a></li>
+      <li><a class="hover:text-orange-600" href="shop.html">Shop</a></li>
+      <li><a class="hover:text-orange-600" href="blog.html">Blog</a></li>
+      <li><a class="hover:text-orange-600" href="about.html">About</a></li>
+      <li><a class="hover:text-orange-600" href="tracking.html">Tracking</a></li>
+      <li><a class="hover:text-orange-600" href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Right Buttons -->
+    <div class="flex items-center space-x-4">
+      <a id="btn-open-login" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100" href="login.html">Login / Register</a>
+      <button id="btn-logout" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100 hidden" onclick="logout()">Logout</button>
+      <a aria-label="Open Cart" href="cart.html" class="relative text-gray-700 hover:text-orange-500" title="Cart">
+        <i class="fa-solid fa-cart-shopping text-xl"></i>
+        <span id="cart-count" class="absolute -top-2 -right-3 bg-orange-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center font-semibold">0</span>
       </a>
-      <ul class="hidden md:flex space-x-6 uppercase font-semibold text-gray-700 text-sm">
-        <li><a class="hover:text-orange-600" href="index.html">Home</a></li>
-        <li><a class="hover:text-orange-600" href="shop.html">Shop</a></li>
-        <li><a class="hover:text-orange-600" href="blog.html">Blog</a></li>
-        <li><a class="hover:text-orange-600" href="about.html">About</a></li>
-        <li><a class="hover:text-orange-600" href="tracking.html">Tracking</a></li>
-        <li><a class="hover:text-orange-600" href="contact.html">Contact</a></li>
-      </ul>
-      <div class="flex items-center space-x-4">
-        <a id="btn-open-login" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100" href="login.html">Login / Register</a>
-        <button id="btn-logout" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100 hidden" onclick="logout()">Logout</button>
-        <a aria-label="Open Cart" href="cart.html" class="relative text-gray-700 hover:text-orange-500" title="Cart">
-          <i class="fa-solid fa-cart-shopping text-xl"></i>
-          <span id="cart-count" class="absolute -top-2 -right-3 bg-orange-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center font-semibold">0</span>
-        </a>
+
+      <!-- Mobile Toggle -->
+      <button id="mobile-toggle" class="md:hidden bg-white text-orange-600 p-2 rounded shadow z-50">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-40">
+    <ul class="flex flex-col mt-16 space-y-4 px-6">
+      <li><a href="index.html" class="text-gray-700 font-semibold hover:text-orange-600">Home</a></li>
+      <li><a href="shop.html" class="text-gray-700 font-semibold hover:text-orange-600">Shop</a></li>
+      <li><a href="blog.html" class="text-gray-700 font-semibold hover:text-orange-600">Blog</a></li>
+      <li><a href="about.html" class="text-gray-700 font-semibold hover:text-orange-600">About</a></li>
+      <li><a href="tracking.html" class="text-gray-700 font-semibold hover:text-orange-600">Tracking</a></li>
+      <li><a href="contact.html" class="text-gray-700 font-semibold hover:text-orange-600">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- Add this before closing </body> -->
+<script>
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileToggle.addEventListener('click', () => {
+    // toggle translate-x-full and translate-x-0
+    mobileMenu.classList.toggle('translate-x-full');
+    mobileMenu.classList.toggle('translate-x-0');
+  });
+
+  // Optional: Close menu when clicking outside or a link
+  const menuLinks = mobileMenu.querySelectorAll('a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('translate-x-full');
+      mobileMenu.classList.remove('translate-x-0');
+    });
+  });
+</script>
+
+
+<!-- HERO SECTION -->
+<section class="relative bg-orange-100 py-20">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-5xl font-bold text-orange-600 mb-4">About ShoeShop</h1>
+    <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
+      We provide premium quality shoes crafted for style, comfort, and longevity. Our mission is to bring the best footwear to your doorstep.
+    </p>
+
+    <!-- Flex container for three images side by side -->
+    <div class="flex justify-between items-center max-w-5xl mx-auto">
+      <img src="images/12.gif" alt="Premium Shoes 1" class="w-1/3 rounded-lg shadow-lg mx-2">
+      <img src="images/13.gif" alt="Premium Shoes 2" class="w-1/3 rounded-lg shadow-lg mx-2">
+      <img src="images/14.gif" alt="Premium Shoes 3" class="w-1/3 rounded-lg shadow-lg mx-2">
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- OUR STORY -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <img src="images/our-story.gif" alt="Our Story" class="rounded-lg shadow-lg">
+      <div>
+        <h2 class="text-4xl font-bold text-orange-600 mb-4">Our Story</h2>
+        <p class="text-gray-700 mb-4">Founded by Suraj Sharma, ShoeShop started as a small boutique and has grown into a premium online destination for shoe enthusiasts. Every shoe is carefully selected to ensure style, comfort, and durability.</p>
+        <p class="text-gray-700">Our team is passionate about footwear and customer experience, striving to make each purchase memorable.</p>
       </div>
     </div>
-  </nav>
+  </section>
 
-  <main class="flex-grow container mx-auto px-4 py-8">
-    
-<h2 class="text-4xl font-bold mb-4 text-center text-orange-600">About Us</h2>
-<p class="text-center text-gray-700 text-lg max-w-3xl mx-auto">ShoeShop is dedicated to offering the finest selection of shoes for every style and occasion.</p>
+  <!-- TEAM MEMBERS -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold text-orange-600 mb-12">Meet Our Team</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300">
+          <img src="images/suraj.jpg" alt="Team Member" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+          <h3 class="text-xl font-semibold text-gray-900">Suraj Sharma</h3>
+          <p class="text-orange-500 font-medium">Founder & CEO</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300">
+          <img src="images/sumit.jpg" alt="Team Member" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+          <h3 class="text-xl font-semibold text-gray-900">Sumit Sharma</h3>
+          <p class="text-orange-500 font-medium">Head Designer</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300">
+          <img src="images/ashish.webp" alt="Team Member" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+          <h3 class="text-xl font-semibold text-gray-900">Ashish</h3>
+          <p class="text-orange-500 font-medium">Marketing Lead</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </main>
+  <!-- BRAND VALUES -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold text-orange-600 mb-12">Why Choose Us</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 bg-orange-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+          <i class="fas fa-gem text-4xl text-orange-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Premium Quality</h3>
+          <p class="text-gray-700">Only the finest materials and designs go into our collection.</p>
+        </div>
+        <div class="p-6 bg-orange-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+          <i class="fas fa-shipping-fast text-4xl text-orange-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
+          <p class="text-gray-700">Get your favorite shoes delivered quickly and safely.</p>
+        </div>
+        <div class="p-6 bg-orange-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+          <i class="fas fa-star text-4xl text-orange-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Customer Satisfaction</h3>
+          <p class="text-gray-700">We prioritize your happiness with every purchase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
-  <footer class="site-footer py-10 mt-10">
+  <footer class="site-footer py-10 mt-10 bg-gray-900 text-white">
     <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
         <h2 class="text-xl font-bold mb-4">About Us</h2>
-        <p class="opacity-80">Welcome to ShoeShop, proudly owned by Suraj Sharma. We deliver high-quality, stylish and comfortable footwear.</p>
+        <p class="opacity-80">Welcome to ShoeShop, proudly owned by Suraj Sharma. We deliver high-quality, stylish, and comfortable footwear.</p>
       </div>
       <div>
         <h3 class="font-semibold text-xl mb-4">Newsletter</h3>
@@ -78,9 +193,5 @@
     </div>
   </footer>
 
-  <!-- Global JS -->
-  <script src="js/main.js" defer></script>
-  <!-- Page JS -->
-  <script src="js/about.js" defer></script>
 </body>
 </html>

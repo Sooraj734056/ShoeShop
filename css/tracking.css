@@ -1,1 +1,32 @@
-/* tracking.css - page specific styles (add later) */
+/* Tracking Result */
+#tracking-result {
+  display: none;
+}
+#tracking-result.show {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.step i {
+  color: #f97316; /* Tailwind orange-500 */
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.step h4 {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+

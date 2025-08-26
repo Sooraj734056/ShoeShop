@@ -1,1 +1,19 @@
-/* about.css - page specific styles (add later) */
+/* ABOUT PAGE CUSTOM STYLES */
+
+.about-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.team img {
+  transition: transform 0.3s ease;
+}
+.team img:hover {
+  transform: scale(1.1);
+}
+body {
+  padding-top: 64px; /* navbar height */
+}

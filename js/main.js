@@ -9,10 +9,10 @@ window.PRODUCTS = [
   { id:'p2', name:'Adidas Ultraboost 22', price:180, oldPrice:210, image:'images/products/3.jpg', alt:'Adidas Ultraboost 22' },
   { id:'p3', name:'Puma Future Rider', price:90, oldPrice:110, image:'images/products/4.jpg', alt:'Puma Future Rider' },
   { id:'p4', name:'Reebok Nano X2', price:130, oldPrice:150, image:'images/products/5.jpg', alt:'Reebok Nano X2' },
-  { id:'p5', name:'New Balance 990v5', price:175, oldPrice:200, image:'images/products/6.jpg', alt:'New Balance 990v5' },
-  { id:'p6', name:'Nike Air Max 270', price:150, oldPrice:180, image:'images/products/7.jpg', alt:'Nike Air Max 270' },
-  { id:'p7', name:'ASICS Gel-Kayano 28', price:160, oldPrice:185, image:'images/products/8.jpg', alt:'ASICS Gel-Kayano 28' },
-  { id:'p8', name:'UA Charged Rogue', price:110, oldPrice:130, image:'images/products/9.jpg', alt:'Under Armour Charged Rogue' }
+  { id:'p5', name:'New Balance 990v5', price:175, oldPrice:200, image:'images/products/casual1.jpg', alt:'New Balance 990v5' },
+  { id:'p6', name:'Nike Air Max 270', price:150, oldPrice:180, image:'images/products/kid1.jpg', alt:'Nike Air Max 270' },
+  { id:'p7', name:'ASICS Gel-Kayano 28', price:160, oldPrice:185, image:'images/products/casual2.jpg', alt:'ASICS Gel-Kayano 28' },
+  { id:'p8', name:'UA Charged Rogue', price:110, oldPrice:130, image:'images/products/sports2.jpg', alt:'Under Armour Charged Rogue' }
 ];
 
 /* Helpers */

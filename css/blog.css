@@ -1,1 +1,27 @@
 /* blog.css - page specific styles (add later) */
+/* Blog Page Custom Styles */
+
+.blog-card img, 
+.blog-card video {
+  transition: transform 0.3s ease-in-out;
+}
+
+.blog-card:hover img,
+.blog-card:hover video {
+  transform: scale(1.05);
+}
+
+.blog-card h3 {
+  transition: color 0.3s;
+}
+
+.blog-card:hover h3 {
+  color: #ea580c; /* orange-600 */
+}
+/* Mobile Menu Active */
+#mobile-menu.active {
+  transform: translateX(0);
+}
+body {
+  padding-top: 64px; /* navbar height */
+}
