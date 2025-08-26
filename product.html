@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShoeShop - Product</title>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <!-- TailwindCSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Global styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Page styles -->
+  <link rel="stylesheet" href="css/product.css">
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col">
+  <!-- NAVBAR -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="container mx-auto px-4 flex justify-between items-center h-16">
+      <a href="index.html" class="flex items-center space-x-3">
+        <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553 2.276a1 1 0 010 1.448L15 16m-3 0v5m0-5H8m4 0H8m7-5a1.5 1.5 0 10-3 0v5h3v-5z"></path></svg>
+        <span class="font-bold text-xl text-orange-600">ShoeShop</span>
+      </a>
+      <ul class="hidden md:flex space-x-6 uppercase font-semibold text-gray-700 text-sm">
+        <li><a class="hover:text-orange-600" href="index.html">Home</a></li>
+        <li><a class="hover:text-orange-600" href="shop.html">Shop</a></li>
+        <li><a class="hover:text-orange-600" href="blog.html">Blog</a></li>
+        <li><a class="hover:text-orange-600" href="about.html">About</a></li>
+        <li><a class="hover:text-orange-600" href="tracking.html">Tracking</a></li>
+        <li><a class="hover:text-orange-600" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="flex items-center space-x-4">
+        <a id="btn-open-login" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100" href="login.html">Login / Register</a>
+        <button id="btn-logout" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100 hidden" onclick="logout()">Logout</button>
+        <a aria-label="Open Cart" href="cart.html" class="relative text-gray-700 hover:text-orange-500" title="Cart">
+          <i class="fa-solid fa-cart-shopping text-xl"></i>
+          <span id="cart-count" class="absolute -top-2 -right-3 bg-orange-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center font-semibold">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow container mx-auto px-4 py-8">
+    
+<h2 class="text-3xl font-bold mb-6 text-center text-orange-600">Product Details</h2>
+<p class="text-center text-gray-600">Use query param <code>?id=pid</code> to load product data. (We will implement in steps.)</p>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer py-10 mt-10">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h2 class="text-xl font-bold mb-4">About Us</h2>
+        <p class="opacity-80">Welcome to ShoeShop, proudly owned by Suraj Sharma. We deliver high-quality, stylish and comfortable footwear.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-xl mb-4">Newsletter</h3>
+        <form class="flex" onsubmit="event.preventDefault(); alert('Subscribed!')">
+          <input type="email" placeholder="Enter your email" class="w-full px-3 py-2 rounded-l bg-gray-800 text-white focus:outline-none">
+          <button type="submit" class="bg-orange-600 px-4 py-2 rounded-r hover:bg-orange-700">Subscribe</button>
+        </form>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold mb-4">Follow Us</h2>
+        <div class="flex space-x-6">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook text-2xl"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram text-2xl"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-x-twitter text-2xl"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin text-2xl"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 border-t border-gray-700 pt-6 text-center opacity-80">
+      <p>&copy; 2025 ShoeShop. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Global JS -->
+  <script src="js/main.js" defer></script>
+  <!-- Page JS -->
+  <script src="js/product.js" defer></script>
+</body>
+</html>

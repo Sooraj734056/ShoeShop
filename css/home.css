@@ -1,0 +1,216 @@
+/* NAVBAR */
+#nav-container {
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Scroll effect: light bg + shadow */
+#nav-container.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Mobile menu hidden by default */
+#mobile-menu {
+  transform: translateX(100%);
+}
+#mobile-menu.active {
+  transform: translateX(0);
+}
+
+/* Optional: mobile toggle button shadow & white background */
+#mobile-toggle {
+  background: white;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+
+
+
+
+
+/* Hero floating effect */
+@keyframes heroFloat {
+  0%, 100% { transform: scale(1.05) translateY(0); }
+  50% { transform: scale(1.1) translateY(-10px); }
+}
+.animate-heroFloat { animation: heroFloat 6s ease-in-out infinite; }
+
+/* Featured Categories */
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.category-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.category-card:hover img { transform: scale(1.1); }
+.category-card p {
+  position: absolute;
+  bottom: 10px;
+  left: 0; right: 0;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.08); /* light blur, images dikhe */
+  backdrop-filter: blur(6px);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* Buttons */
+.btn-gradient {
+  background: linear-gradient(135deg, #ff7e00, #ffb347);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .3s ease;
+}
+.btn-gradient:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(255,126,0,0.4); }
+
+/* Modal */
+#product-modal { display: none; }
+#product-modal.active { display: flex; }
+#product-modal-content { background:white; padding:1rem; border-radius:1rem; max-width:900px; width:95%; max-height:90vh; overflow-y:auto; }
+
+/* Flash Sale Section with Video Background */
+.flash-sale-section {
+  position: relative;
+  width: 100%;
+  height: 550px; /* Reduced height for better layout */
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* Video styling */
+.flash-sale-section video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlay content */
+.flash-sale-section .flash-overlay {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  padding: 2.5rem;
+  background: rgba(0, 0, 0, 0.35); /* semi-transparent overlay for readability */
+  backdrop-filter: blur(2px);
+}
+
+/* Timer spans */
+#flash-timer span {
+  display: inline-block;
+  min-width: 60px;
+  text-align: center;
+  background: #ff7e00;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .flash-sale-section {
+    height: 480px;
+  }
+  .flash-sale-section .flash-overlay h2 {
+    font-size: 3rem;
+  }
+  #flash-timer span {
+    min-width: 55px;
+    padding: 0.35rem 0.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .flash-sale-section {
+    height: 400px;
+  }
+  .flash-sale-section .flash-overlay h2 {
+    font-size: 2rem;
+  }
+  #flash-timer span {
+    min-width: 45px;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+
+
+
+
+/* Customer Review Cards */
+#reviews-grid .review-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  cursor: default;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#reviews-grid .review-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.25);
+}
+
+.review-card img {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff7e00;
+}
+
+.review-card .name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ff7e00;
+}
+
+.review-card .rating {
+  font-size: 1rem;
+  color: #facc15; /* yellow for stars */
+}
+
+.review-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #111111; /* dark/black comment text */
+  margin-top: 0.3rem;
+}
+
+
+
+

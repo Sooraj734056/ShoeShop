@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShoeShop - Home</title>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col">
+
+<!-- NAVBAR -->
+<nav id="main-navbar" class="fixed w-full top-0 z-50">
+  <div id="nav-container" class="container mx-auto px-4 flex justify-between items-center h-16 bg-transparent transition-all duration-300">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-3">
+      <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553 2.276a1 1 0 010 1.448L15 16m-3 0v5m0-5H8m4 0H8m7-5a1.5 1.5 0 10-3 0v5h3v-5z"></path>
+      </svg>
+      <span class="font-bold text-xl text-orange-600">ShoeShop</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-6 uppercase font-semibold text-gray-700 text-sm">
+      <li><a class="hover:text-orange-600" href="index.html">Home</a></li>
+      <li><a class="hover:text-orange-600" href="shop.html">Shop</a></li>
+      <li><a class="hover:text-orange-600" href="blog.html">Blog</a></li>
+      <li><a class="hover:text-orange-600" href="about.html">About</a></li>
+      <li><a class="hover:text-orange-600" href="tracking.html">Tracking</a></li>
+      <li><a class="hover:text-orange-600" href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Right Section -->
+    <div class="flex items-center space-x-4">
+      <a id="btn-open-login" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100" href="login.html">Account</a>
+      <button id="btn-logout" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100 hidden" onclick="logout()">Logout</button>
+      <a aria-label="Open Cart" href="cart.html" class="relative text-gray-700 hover:text-orange-500" title="Cart">
+        <i class="fa-solid fa-cart-shopping text-xl"></i>
+        <span id="cart-count" class="absolute -top-2 -right-3 bg-orange-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center font-semibold">0</span>
+      </a>
+      <!-- Mobile Toggle -->
+      <button id="mobile-toggle" class="md:hidden p-2 rounded bg-white text-gray-800 shadow-lg">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+    <ul class="flex flex-col p-6 space-y-4">
+      <li><a href="index.html" class="text-gray-800 font-semibold">Home</a></li>
+      <li><a href="shop.html" class="text-gray-800 font-semibold">Shop</a></li>
+      <li><a href="blog.html" class="text-gray-800 font-semibold">Blog</a></li>
+      <li><a href="about.html" class="text-gray-800 font-semibold">About</a></li>
+      <li><a href="tracking.html" class="text-gray-800 font-semibold">Tracking</a></li>
+      <li><a href="contact.html" class="text-gray-800 font-semibold">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="flex-grow">
+
+  <!-- HERO SECTION -->
+  <section class="relative w-full h-screen overflow-hidden">
+    <img src="images/banners/poster design.gif" alt="Hero Shoe" class="absolute w-full h-full object-cover transform scale-110 animate-heroFloat">
+    <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start px-8 md:px-20">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Every Step,<br> A Statement</h1>
+      <p class="text-lg md:text-2xl text-white mb-6 max-w-lg">Run Your World with comfort and the latest footwear trends.<br>"Run Faster. Play Harder. Live Better."</p>
+      <a href="shop.html" class="btn-gradient inline-block px-6 py-3 text-lg">Shop Now</a>
+    </div>
+  </section>
+
+<!-- FEATURED CATEGORIES -->
+<section class="mt-16 container mx-auto px-4">
+  <h2 class="text-3xl font-bold mb-6 text-center">Shop by Category</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+    <a href="shop.html" class="category-card">
+      <img src="images/products/men.jpg" alt="">
+      <p>Men</p>
+    </a>
+    <a href="shop.html" class="category-card">
+      <img src="images/products/women.jpg" alt="">
+      <p>Women</p>
+    </a>
+    <a href="shop.html" class="category-card">
+      <img src="images/products/kid.jpg" alt="">
+      <p>Kids</p>
+    </a>
+    <a href="shop.html" class="category-card">
+      <img src="images/products/sports.jpg" alt="">
+      <p>Sports</p>
+    </a>
+    <a href="shop.html" class="category-card">
+      <img src="images/products/casual.jpg" alt="">
+      <p>Casual</p>
+    </a>
+    <a href="shop.html" class="category-card">
+      <img src="images/products/limited.jpg" alt="">
+      <p>Limited</p>
+    </a>
+  </div>
+</section>
+
+
+  <!-- TRENDING / FEATURED PRODUCTS -->
+  <section id="featured-products" class="mt-16 container mx-auto px-4">
+  <h2 class="text-3xl font-bold mb-6 text-center">Trending Shoes</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <!-- Product Cards Injected via JS -->
+  </div>
+</section>
+
+
+<!-- BEST SELLERS / HOT DEALS -->
+<section class="mt-16 container mx-auto px-4">
+  <h2 class="text-3xl font-bold mb-6 text-center text-orange-600">🔥 Hot Picks</h2>
+  <div id="hot-deals-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <!-- Hot deals injected via JS -->
+  </div>
+</section>
+
+
+
+<!-- FLASH SALE TIMER SECTION -->
+<section class="flash-sale-section relative rounded-lg overflow-hidden">
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+    <source src="images/flash-sale.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay content -->
+  <div class="flash-overlay relative z-10">
+    <h2 class="text-5xl md:text-6xl font-extrabold mb-6 text-white">Flash Sale – Limited Time!</h2>
+    <div class="flex justify-center gap-6 text-3xl font-bold mb-6" id="flash-timer">
+      <span id="hours">00</span> : 
+      <span id="minutes">00</span> : 
+      <span id="seconds">00</span>
+    </div>
+    <p class="text-center text-white font-semibold text-xl mb-6">Hurry up! Grab your favorite shoes before time runs out.</p>
+    <a href="shop.html" class="btn-gradient px-8 py-4 text-lg">Shop Now</a>
+  </div>
+</section>
+
+<!-- CUSTOMER REVIEWS -->
+<section class="mt-16 container mx-auto px-4">
+  <h2 class="text-3xl font-bold mb-12 text-center text-orange-500">What Our Customers Say</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8" id="reviews-grid">
+    <!-- Injected via JS -->
+  </div>
+</section>
+
+
+
+  <!-- TRUST & VALUE -->
+  <section class="mt-16 container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+    <div><i class="fas fa-truck text-4xl text-orange-500 mb-2"></i><p>Free Delivery</p></div>
+    <div><i class="fas fa-undo text-4xl text-orange-500 mb-2"></i><p>Easy Return</p></div>
+    <div><i class="fas fa-money-bill-wave text-4xl text-orange-500 mb-2"></i><p>Cash on Delivery</p></div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="mt-16 container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-4">Subscribe & Get Offers</h2>
+    <form class="flex justify-center gap-2" onsubmit="event.preventDefault(); alert('Subscribed!')">
+      <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-l border border-gray-300 focus:outline-none">
+      <button type="submit" class="btn-gradient rounded-r px-4 py-2">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- PRODUCT MODAL -->
+  <div id="product-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-center">
+    <div id="product-modal-content" class="bg-white p-6 rounded-xl w-11/12 md:w-4/5 flex flex-wrap gap-6 relative"></div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer py-10 mt-10 bg-gray-900 text-white">
+  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div>
+      <h2 class="text-xl font-bold mb-4">About Us</h2>
+      <p>Welcome to ShoeShop. Stylish & comfortable footwear for everyone.</p>
+    </div>
+    <div>
+      <h3 class="font-semibold text-xl mb-4">Newsletter</h3>
+      <form class="flex" onsubmit="event.preventDefault(); alert('Subscribed!')">
+        <input type="email" placeholder="Enter your email" class="w-full px-3 py-2 rounded-l bg-gray-800 text-white focus:outline-none">
+        <button type="submit" class="bg-orange-600 px-4 py-2 rounded-r hover:bg-orange-700">Subscribe</button>
+      </form>
+    </div>
+    <div>
+      <h2 class="text-xl font-bold mb-4">Follow Us</h2>
+      <div class="flex space-x-6">
+        <a href="#"><i class="fab fa-facebook text-2xl"></i></a>
+        <a href="#"><i class="fab fa-instagram text-2xl"></i></a>
+        <a href="#"><i class="fab fa-twitter text-2xl"></i></a>
+        <a href="#"><i class="fab fa-linkedin text-2xl"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="mt-10 border-t border-gray-700 pt-6 text-center opacity-80">
+    <p>&copy; 2025 ShoeShop. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/home.js" defer></script>
+</body>
+</html>
