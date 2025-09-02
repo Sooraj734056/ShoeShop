@@ -1,1 +1,45 @@
-/* login.css - page specific styles (add later) */
+/* Make sure buttons are visible */
+#login-btn {
+  background-color: #f97316; /* Tailwind orange-600 */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#login-btn:hover {
+  background-color: #ea580c; /* Tailwind orange-700 */
+}
+
+/* Input focus ring */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f97316;
+}
+
+/* Left panel image responsive */
+@media (max-width: 768px) {
+  .md\\:flex {
+    display: none;
+  }
+}
+/* Mobile Menu */
+#mobile-menu {
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+#mobile-menu.show {
+  display: block;
+}
+#side-menu {
+  transform: translateX(-100%); /* start hidden to the left */
+}
+#side-menu.open {
+  transform: translateX(0);
+}
+
+#overlay {
+  display: none;
+}
+#overlay.show {
+  display: block;
+}

@@ -1,1 +1,137 @@
-/* cart.css - page specific styles (add later) */
+/* Cart Items */
+#cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cart-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-right: 20px;
+}
+
+.cart-details {
+  flex: 1;
+}
+
+.cart-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.cart-price {
+  color: #f97316;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.remove-btn {
+  color: #ef4444;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.remove-btn:hover {
+  color: #b91c1c;
+}
+
+/* Checkout Summary Box */
+#cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cart-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-right: 20px;
+}
+
+.cart-details {
+  flex: 1;
+}
+
+.cart-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.cart-price {
+  color: #f97316;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.remove-btn {
+  color: #ef4444;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.remove-btn:hover {
+  color: #b91c1c;
+}
+
+/* Checkout summary box style */
+.bg-gray-100 {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+}
+
+a[href="checkout.html"] {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: white !important;
+  background-color: #f97316 !important; /* Tailwind orange-600 */
+  padding: 12px 0;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+a[href="checkout.html"]:hover {
+  background-color: #ea580c !important; /* Tailwind orange-700 */
+  transform: translateY(-2px);
+}
+

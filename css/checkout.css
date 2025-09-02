@@ -1,1 +1,250 @@
-/* checkout.css - page specific styles (add later) */
+/* -------------------- CHECKOUT STYLING -------------------- */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media(min-width:768px){
+  .checkout-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.form-wizard {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.stepper-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.stepper-item {
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+.stepper-item::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  background: #ddd;
+  z-index: -1;
+}
+
+.stepper-item:first-child::before {
+  left: 50%;
+  width: 50%;
+}
+
+.stepper-item:last-child::before {
+  left: 0;
+  width: 50%;
+}
+
+.step-counter {
+  width: 32px;
+  height: 32px;
+  margin: auto;
+  border-radius: 50%;
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.stepper-item.active .step-counter {
+  background: #f97316; /* ShoesShop orange */
+}
+
+.step-name {
+  margin-top: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.stepper-item.active .step-name {
+  color: #f97316;
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step.active-step {
+  display: block;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+legend {
+  font-weight: 600;
+  color: #f97316;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 6px rgba(249,115,22,0.5);
+}
+
+.btn-next, .btn-prev, .btn-submit {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.confirmation-summary {
+  border: 1px dashed #f97316;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.order-summary {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+#invoice-modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#invoice-modal .modal-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+}
+/* -------- BUTTON FIX -------- */
+.btn, .btn-next, .btn-prev, .btn-submit {
+  background-color: #f97316; /* ShoesShop orange */
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover, .btn-next:hover, .btn-prev:hover, .btn-submit:hover {
+  background-color: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(249,115,22,0.3);
+}
+
+.btn-prev {
+  background-color: #444;
+  color: #fff;
+}
+
+.btn-prev:hover {
+  background-color: #555;
+  box-shadow: none;
+}
+
+/* -------- ORDER SUMMARY -------- */
+.order-summary-container {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.order-summary-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-summary-container li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.order-summary-container li.total {
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-top: 1px solid #ddd;
+  padding-top: 0.75rem;
+}
+/* SIDE MENU */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+  box-shadow: -2px 0 12px rgba(0,0,0,0.2);
+}
+
+.side-menu.active {
+  transform: translateX(0);
+}
+
+.side-menu .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 60px 20px;
+}
+
+.side-menu ul li {
+  margin-bottom: 20px;
+}
+
+.side-menu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.side-menu ul li a:hover {
+  color: #f97316; /* ShoesShop orange */
+}

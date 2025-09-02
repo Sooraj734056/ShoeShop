@@ -1,8 +1,31 @@
-/* Mobile Menu Active */
+
+/* NAVBAR */
+#nav-container {
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Scroll effect: light bg + shadow */
+#nav-container.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Mobile menu hidden by default */
+#mobile-menu {
+  transform: translateX(100%);
+}
 #mobile-menu.active {
   transform: translateX(0);
 }
 
+/* Optional: mobile toggle button shadow & white background */
+#mobile-toggle {
+  background: white;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
 
 /* Product Card */
 .product-card {

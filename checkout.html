@@ -5,91 +5,167 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ShoeShop - Checkout</title>
   <link rel="icon" type="image/png" href="images/favicon.png" />
-  <!-- TailwindCSS CDN -->
+  <!-- TailwindCSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Global styles -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Page styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/checkout.css">
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col">
-  <!-- NAVBAR -->
-  <nav class="bg-white shadow sticky top-0 z-50">
-    <div class="container mx-auto px-4 flex justify-between items-center h-16">
-      <a href="index.html" class="flex items-center space-x-3">
-        <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553 2.276a1 1 0 010 1.448L15 16m-3 0v5m0-5H8m4 0H8m7-5a1.5 1.5 0 10-3 0v5h3v-5z"></path></svg>
-        <span class="font-bold text-xl text-orange-600">ShoeShop</span>
+<body class="bg-gray-50 text-gray-900 font-sans flex flex-col min-h-screen">
+
+<!-- NAVBAR -->
+<nav id="main-navbar" class="fixed w-full top-0 z-50 bg-sky-200 backdrop-blur-md shadow-md">
+  <div id="nav-container" class="container mx-auto px-4 flex justify-between items-center h-16">
+    <a href="index.html" class="flex items-center space-x-3">
+      <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553 2.276a1 1 0 010 1.448L15 16m-3 0v5m0-5H8m4 0H8m7-5a1.5 1.5 0 10-3 0v5h3v-5z"></path>
+      </svg>
+      <span class="font-bold text-xl text-orange-600">ShoeShop</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-6 uppercase font-semibold text-gray-700 text-sm">
+      <li><a class="hover:text-orange-600" href="index.html">Home</a></li>
+      <li><a class="hover:text-orange-600" href="shop.html">Shop</a></li>
+      <li><a class="hover:text-orange-600" href="blog.html">Blog</a></li>
+      <li><a class="hover:text-orange-600" href="about.html">About</a></li>
+      <li><a class="hover:text-orange-600" href="tracking.html">Tracking</a></li>
+      <li><a class="hover:text-orange-600" href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Right Buttons -->
+    <div class="flex items-center space-x-4">
+      <a id="btn-open-login" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100" href="login.html">Account</a>
+      <button id="btn-logout" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100 hidden" onclick="logout()">Logout</button>
+      <a aria-label="Open Cart" href="cart.html" class="relative text-gray-700 hover:text-orange-500" title="Cart">
+        <i class="fa-solid fa-cart-shopping text-xl"></i>
+        <span id="cart-count" class="absolute -top-2 -right-3 bg-orange-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center font-semibold">0</span>
       </a>
-      <ul class="hidden md:flex space-x-6 uppercase font-semibold text-gray-700 text-sm">
-        <li><a class="hover:text-orange-600" href="index.html">Home</a></li>
-        <li><a class="hover:text-orange-600" href="shop.html">Shop</a></li>
-        <li><a class="hover:text-orange-600" href="blog.html">Blog</a></li>
-        <li><a class="hover:text-orange-600" href="about.html">About</a></li>
-        <li><a class="hover:text-orange-600" href="tracking.html">Tracking</a></li>
-        <li><a class="hover:text-orange-600" href="contact.html">Contact</a></li>
-      </ul>
-      <div class="flex items-center space-x-4">
-        <a id="btn-open-login" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100" href="login.html">Login / Register</a>
-        <button id="btn-logout" class="px-4 py-1 text-sm border border-orange-500 rounded-md text-orange-600 hover:bg-orange-100 hidden" onclick="logout()">Logout</button>
-        <a aria-label="Open Cart" href="cart.html" class="relative text-gray-700 hover:text-orange-500" title="Cart">
-          <i class="fa-solid fa-cart-shopping text-xl"></i>
-          <span id="cart-count" class="absolute -top-2 -right-3 bg-orange-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center font-semibold">0</span>
-        </a>
-      </div>
+
+      <!-- Mobile Toggle -->
+      <button id="mobile-toggle" class="md:hidden bg-white text-orange-600 p-2 rounded shadow z-50">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
     </div>
-  </nav>
+  </div>
 
-  <main class="flex-grow container mx-auto px-4 py-8">
-    
-<h2 class="text-3xl font-bold mb-6 text-center text-orange-600">Checkout</h2>
-<form id="checkout-form" class="space-y-6 max-w-xl mx-auto">
-  <fieldset class="border p-4 rounded">
-    <legend class="font-semibold text-lg mb-3">Billing Information</legend>
-    <label class="block mb-2 font-semibold" for="billing-name">Full Name</label>
-    <input id="billing-name" type="text" class="w-full border rounded px-3 py-2" placeholder="John Doe" required />
-    <label class="block mt-4 mb-2 font-semibold" for="billing-email">Email</label>
-    <input id="billing-email" type="email" class="w-full border rounded px-3 py-2" placeholder="john@example.com" required />
-  </fieldset>
-  <div class="text-right"><button type="submit" class="btn-gradient rounded py-3 px-8 font-semibold">Place Order</button></div>
-</form>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-40">
+    <ul class="flex flex-col mt-16 space-y-4 px-6">
+      <li><a href="index.html" class="text-gray-700 font-semibold hover:text-orange-600">Home</a></li>
+      <li><a href="shop.html" class="text-gray-700 font-semibold hover:text-orange-600">Shop</a></li>
+      <li><a href="blog.html" class="text-gray-700 font-semibold hover:text-orange-600">Blog</a></li>
+      <li><a href="about.html" class="text-gray-700 font-semibold hover:text-orange-600">About</a></li>
+      <li><a href="tracking.html" class="text-gray-700 font-semibold hover:text-orange-600">Tracking</a></li>
+      <li><a href="contact.html" class="text-gray-700 font-semibold hover:text-orange-600">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-  </main>
+<!-- MAIN CHECKOUT -->
+<main class="flex-grow container mx-auto px-4 py-24">
+  <h2 class="text-3xl font-bold mb-6 text-center text-orange-600">Checkout</h2>
+  
+  <div class="checkout-grid md:grid md:grid-cols-2 gap-8">
 
-  <!-- FOOTER -->
-  <footer class="site-footer py-10 mt-10">
-    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
-        <h2 class="text-xl font-bold mb-4">About Us</h2>
-        <p class="opacity-80">Welcome to ShoeShop, proudly owned by Suraj Sharma. We deliver high-quality, stylish and comfortable footwear.</p>
+    <!-- LEFT: FORM WIZARD -->
+    <div class="form-wizard bg-white rounded-lg shadow p-6">
+      <div class="stepper-wrapper flex justify-between mb-6">
+        <div class="stepper-item active"><div class="step-counter">1</div><div class="step-name">Shipping</div></div>
+        <div class="stepper-item"><div class="step-counter">2</div><div class="step-name">Payment</div></div>
+        <div class="stepper-item"><div class="step-counter">3</div><div class="step-name">Confirm</div></div>
       </div>
-      <div>
-        <h3 class="font-semibold text-xl mb-4">Newsletter</h3>
-        <form class="flex" onsubmit="event.preventDefault(); alert('Subscribed!')">
-          <input type="email" placeholder="Enter your email" class="w-full px-3 py-2 rounded-l bg-gray-800 text-white focus:outline-none">
-          <button type="submit" class="bg-orange-600 px-4 py-2 rounded-r hover:bg-orange-700">Subscribe</button>
-        </form>
-      </div>
-      <div>
-        <h2 class="text-xl font-bold mb-4">Follow Us</h2>
-        <div class="flex space-x-6">
-          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook text-2xl"></i></a>
-          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram text-2xl"></i></a>
-          <a href="https://twitter.com" target="_blank"><i class="fab fa-x-twitter text-2xl"></i></a>
-          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin text-2xl"></i></a>
+      <form id="checkout-form">
+        <!-- Step 1: Shipping -->
+        <div class="form-step active-step space-y-4">
+          <fieldset class="border rounded p-4">
+            <legend class="font-semibold text-lg">Your Details</legend>
+            <label>Full Name</label>
+            <input type="text" id="full-name" placeholder="Enter full name" class="w-full border rounded px-3 py-2" required>
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="For order confirmation" class="w-full border rounded px-3 py-2" required>
+            <label>Address</label>
+            <input type="text" id="address" placeholder="House, Street, City" class="w-full border rounded px-3 py-2" required>
+            <label>Contact Number</label>
+            <input type="tel" id="contact-number" placeholder="10-digit mobile" class="w-full border rounded px-3 py-2" required>
+          </fieldset>
+          <div class="text-right"><button type="button" class="btn-next bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded">Next →</button></div>
         </div>
+
+        <!-- Step 2: Payment -->
+        <div class="form-step space-y-4">
+          <fieldset class="border rounded p-4">
+            <legend class="font-semibold text-lg">Payment Method</legend>
+            <label>Select Method</label>
+            <select id="payment-method" class="w-full border rounded px-3 py-2">
+              <option value="" disabled selected>Select</option>
+              <option value="Card">Card</option>
+              <option value="UPI">UPI</option>
+              <option value="COD">Cash on Delivery</option>
+            </select>
+            <div id="card-details" class="payment-details hidden space-y-2 mt-2">
+              <input type="text" placeholder="Card Number" class="w-full border rounded px-3 py-2">
+              <input type="text" placeholder="Expiry MM/YY" class="w-full border rounded px-3 py-2">
+              <input type="text" placeholder="CVV" class="w-full border rounded px-3 py-2">
+            </div>
+            <div id="upi-details" class="payment-details hidden mt-2">
+              <input type="text" placeholder="UPI ID (name@bank)" class="w-full border rounded px-3 py-2">
+            </div>
+          </fieldset>
+          <div class="flex justify-between">
+            <button type="button" class="btn-prev bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-2 rounded">← Previous</button>
+            <button type="button" class="btn-next bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded">Next →</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Confirm -->
+        <div class="form-step space-y-4">
+          <div class="confirmation-summary">
+            <h3 class="font-semibold text-lg">Confirm Your Order</h3>
+            <p>Check details and click place order to complete.</p>
+          </div>
+          <div class="flex justify-between">
+            <button type="button" class="btn-prev bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-2 rounded">← Previous</button>
+            <button type="submit" class="btn-submit bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded">Place Order</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- RIGHT: ORDER SUMMARY -->
+    <div class="order-summary bg-white rounded-lg shadow p-6">
+      <h3 class="text-xl font-semibold mb-4 text-orange-600">Order Summary</h3>
+      <ul id="order-summary-list" class="space-y-2"></ul>
+      <div class="mt-4 border-t pt-2 flex justify-between font-semibold">
+        <span>Subtotal</span><span id="subtotal-price">₹0</span>
+      </div>
+      <div class="flex justify-between font-semibold mt-1">
+        <span>Delivery Charges</span><span id="delivery-price">₹50</span>
+      </div>
+      <div class="mt-2 border-t pt-2 flex justify-between font-bold text-lg">
+        <span>Total</span><span id="total-price">₹0</span>
       </div>
     </div>
-    <div class="mt-10 border-t border-gray-700 pt-6 text-center opacity-80">
-      <p>&copy; 2025 ShoeShop. All Rights Reserved.</p>
-    </div>
-  </footer>
 
-  <!-- Global JS -->
-  <script src="js/main.js" defer></script>
-  <!-- Page JS -->
-  <script src="js/checkout.js" defer></script>
+  </div>
+</main>
+
+<!-- SUCCESS MODAL -->
+<div id="invoice-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-lg p-6 max-w-md w-full">
+    <span id="modal-close" class="absolute top-3 right-4 text-xl font-bold cursor-pointer">&times;</span>
+    <h2 class="text-2xl font-bold text-orange-600 mb-2">🎉 Order Successful!</h2>
+    <p>Thank you for shopping at ShoeShop.</p>
+    <div id="invoice-details" class="mt-4"></div>
+  </div>
+</div>
+
+<footer class="bg-gray-100 text-center py-4 mt-8">
+  <p>© 2025 ShoeShop. All Rights Reserved.</p>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
